@@ -34,4 +34,4 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/mini-ecommerce-admin.git
+   git clone https://https://github.com/yinkus89/mini-ecommerce-admin.git
