@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Wireless Headphones",
+        "description": "Noise-cancelling wireless headphones with 30 hours of battery life.",
+        "price": 199.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Headphones",
+        "category": "Electronics",
+        "inStock": true
+    },
+    {
+        "id": 2,
+        "name": "Smartphone",
+        "description": "Latest model smartphone with a stunning display and high-resolution camera.",
+        "price": 799.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Smartphone",
+        "category": "Electronics",
+        "inStock": true
+    },
+    {
+        "id": 3,
+        "name": "4K Ultra HD TV",
+        "description": "A 55-inch 4K Ultra HD Smart LED TV with built-in streaming apps.",
+        "price": 499.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=4K+TV",
+        "category": "Electronics",
+        "inStock": false
+    },
+    {
+        "id": 4,
+        "name": "Gaming Laptop",
+        "description": "High-performance gaming laptop with RGB keyboard and dedicated GPU.",
+        "price": 1499.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Gaming+Laptop",
+        "category": "Computers",
+        "inStock": true
+    },
+    {
+        "id": 5,
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with adjustable DPI and customizable buttons.",
+        "price": 29.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Wireless+Mouse",
+        "category": "Accessories",
+        "inStock": true
+    },
+    {
+        "id": 6,
+        "name": "Smartwatch",
+        "description": "Fitness tracking smartwatch with heart rate monitor and GPS.",
+        "price": 199.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Smartwatch",
+        "category": "Wearables",
+        "inStock": true
+    },
+    {
+        "id": 7,
+        "name": "Bluetooth Speaker",
+        "description": "Portable Bluetooth speaker with rich sound quality and long battery life.",
+        "price": 79.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Bluetooth+Speaker",
+        "category": "Accessories",
+        "inStock": true
+    },
+    {
+        "id": 8,
+        "name": "Digital Camera",
+        "description": "Compact digital camera with 24MP resolution and 10x optical zoom.",
+        "price": 499.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Digital+Camera",
+        "category": "Photography",
+        "inStock": false
+    },
+    {
+        "id": 9,
+        "name": "Electric Kettle",
+        "description": "1.7L electric kettle with auto shut-off and boil-dry protection.",
+        "price": 39.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Electric+Kettle",
+        "category": "Home Appliances",
+        "inStock": true
+    },
+    {
+        "id": 10,
+        "name": "Office Chair",
+        "description": "Ergonomic office chair with adjustable height and lumbar support.",
+        "price": 149.99,
+        "imageUrl": "https://dummyimage.com/300x300/000/fff&text=Office+Chair",
+        "category": "Furniture",
+        "inStock": true
+    }
+]
