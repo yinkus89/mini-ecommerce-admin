@@ -1,24 +1,28 @@
-// src/pages/ProductDetailsPage.jsx
 import React from 'react';
-import UpdateItem from '../components/UpdateItem';
+import { useParams } from 'react-router-dom'; 
+import productsData from '../data/products.json';
 
-const ProductDetailsPage = ({ product }) => {
-  const handleUpdateItem = (itemId, updatedData) => {
-    console.log(`Updated Item ID: ${itemId}`, updatedData);
-    // Perform the update logic here, such as making an API call to update the product.
-  };
+const ProductDetailsPage = () => {
+    const { id } = useParams();
+    const product = productsData.find(prod => prod.id === parseInt(id));
 
-  return (
-    <div>
-      <h1>Product Details</h1>
-      {/* Other product details here */}
-      <UpdateItem 
-        itemId={product.id} 
-        onUpdate={handleUpdateItem} 
-        initialItemData={product} 
-      />
-    </div>
-  );
+    if (!product) {
+        return <div className="not-found">Product not found!</div>;
+    }
+
+    return (
+        <div className="product-details">
+            <div className="product-image">
+                <img src={product.imageUrl} alt={product.name} />
+            </div>
+            <div className="product-info">
+                <h2 className="product-title">{product.name}</h2>
+                <p className="product-description">{product.description}</p>
+                <p className="product-price">${product.price}</p>
+                <button className="view-btn">view details</button>
+            </div>
+        </div>
+    );
 };
 
 export default ProductDetailsPage;

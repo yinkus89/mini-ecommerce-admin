@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 
 const CreateProductForm = ({ addProduct }) => {
   const [name, setName] = useState('');
@@ -49,6 +50,11 @@ const CreateProductForm = ({ addProduct }) => {
       <button type="submit">Add Product</button>
     </form>
   );
+};
+
+// Define PropTypes
+CreateProductForm.propTypes = {
+  addProduct: PropTypes.func.isRequired, // Specify that addProduct is a required function
 };
 
 export default CreateProductForm;

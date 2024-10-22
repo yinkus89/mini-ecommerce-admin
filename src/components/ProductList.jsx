@@ -1,39 +1,24 @@
-// src/components/ProductList.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import productsData from '../data/products.json'; // Adjust the path accordingly
 
-const ProductList = ({ products, deleteProduct }) => {
-  return (
-    <div style={{ marginLeft: '220px', padding: '20px' }}>
-      <h2>Product List</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td><img src={product.image} alt={product.name} style={{ width: '50px' }} /></td>
-              <td>{product.name}</td>
-              <td>${product.price}</td>
-              <td>{product.quantity > 0 ? product.quantity : 'Out of Stock'}</td>
-              <td>
-                <Link to={`/products/${product.id}`}>View</Link> | 
-                <Link to={`/edit-product/${product.id}`}>Edit</Link> | 
-                <button onClick={() => deleteProduct(product.id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+const ProductList = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        setProducts(productsData); // Set state with products data
+    }, []);
+
+    return (
+        <div className="product-list">
+            {products.map(product => (
+                <div className="product-item" key={product.id}>
+                    <img src={product.imageUrl} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <p>${product.price}</p>
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export default ProductList;

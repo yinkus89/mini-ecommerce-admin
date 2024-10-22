@@ -1,5 +1,7 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/styles.css'; // Adjust the path as necessary
+
 
 const Footer = () => {
   return (
@@ -8,51 +10,26 @@ const Footer = () => {
         <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#" onClick={(e) => { e.preventDefault(); console.log('Home clicked'); }}>
-                Home
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#" onClick={(e) => { e.preventDefault(); console.log('Add Product clicked'); }}>
-                Add Product
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#" onClick={(e) => { e.preventDefault(); console.log('Products clicked'); }}>
-                Products
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#" onClick={(e) => { e.preventDefault(); console.log('About Us clicked'); }}>
-                About Us
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a href="#" onClick={(e) => { e.preventDefault(); console.log('Contact clicked'); }}>
-                Contact
-              </a>
-            </li>
+            <li><Link to="/" onClick={() => console.log('Home clicked')}>Home</Link></li>
+            <li><Link to="/add-product" onClick={() => console.log('Add Product clicked')}>Add Product</Link></li>
+            <li><Link to="/products" onClick={() => console.log('Products clicked')}>Products</Link></li>
+            <li><Link to="/about" onClick={() => console.log('About Us clicked')}>About Us</Link></li>
+            <li><Link to="/contact" onClick={() => console.log('Contact clicked')}>Contact</Link></li>
           </ul>
         </div>
         <div className="footer-social">
           <h4>Follow Us</h4>
           <div className="social-icons">
-            <button className="social-icon" onClick={() => console.log('Facebook clicked')}>
+            <button className="social-icon" onClick={() => console.log('Facebook clicked')} aria-label="Facebook">
               <i className="fab fa-facebook-f"></i>
             </button>
-            <button className="social-icon" onClick={() => console.log('Twitter clicked')}>
+            <button className="social-icon" onClick={() => console.log('Twitter clicked')} aria-label="Twitter">
               <i className="fab fa-twitter"></i>
             </button>
-            <button className="social-icon" onClick={() => console.log('Instagram clicked')}>
+            <button className="social-icon" onClick={() => console.log('Instagram clicked')} aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </button>
-            <button className="social-icon" onClick={() => console.log('LinkedIn clicked')}>
+            <button className="social-icon" onClick={() => console.log('LinkedIn clicked')} aria-label="LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </button>
           </div>
