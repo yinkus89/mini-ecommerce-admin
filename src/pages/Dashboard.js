@@ -5,13 +5,20 @@ import ProductList from '../components/ProductList';
 
 const Dashboard = ({ products, deleteProduct }) => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <ProductList products={products} deleteProduct={deleteProduct} />
-    </div>
+      <div>
+          <h1>Product Dashboard</h1>
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+              {products.map((product) => (
+                  <ProductList
+                      key={product.id}
+                      product={product}
+                      deleteProduct={deleteProduct}
+                  />
+              ))}
+          </div>
+      </div>
   );
 };
-
 // Define prop types
 Dashboard.propTypes = {
   products: PropTypes.array.isRequired, // Expected to be an array

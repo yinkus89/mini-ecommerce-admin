@@ -1,4 +1,5 @@
 // src/App.js
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -6,38 +7,42 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import ProductDetailsPage from './pages/ProductDetailsPage';
-import CreateProductForm from './components/CreateProductForm';
+import CreateProduct from './components/CreateProduct';
 import NotFound from './components/NotFound';
-import productData from '../src/data/products.json';
-import UpdateItem from './components/UpdateItem';
+import UpdateItem from './components/UpdateItem'; // Use UpdateItem here
+import productData from './data/products.json';
 
 function App() {
-  const [products, setProducts] = useState(productData);
+    const [products, setProducts] = useState(productData);
 
-  const addProduct = (product) => {
-    setProducts([...products, { id: products.length + 1, ...product }]);
-  };
+    const addProduct = (product) => {
+        setProducts([...products, { id: products.length + 1, ...product }]);
+    };
 
-  const deleteProduct = (id) => {
-    setProducts(products.filter(product => product.id !== id));
-  };
+    const updateProduct = (id, updatedProduct) => {
+        setProducts(products.map(product => (product.id === id ? updatedProduct : product)));
+    };
 
-  return (
-    <Router>
-      <div>
-        <Navbar />
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Dashboard products={products} deleteProduct={deleteProduct} />} />
-          <Route path="/product/:id" component={ProductDetailsPage} />
-          <Route path="/add-product" element={<CreateProductForm addProduct={addProduct} />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/update-item" element={<UpdateItem />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  );
+    const deleteProduct = (id) => {
+        setProducts(products.filter(product => product.id !== id));
+    };
+
+    return (
+        <Router>
+            <div>
+                <Navbar />
+                <Sidebar />
+                <Routes>
+                    <Route path="/" element={<Dashboard products={products} deleteProduct={deleteProduct} />} />
+                    <Route path="/products/:id" element={<ProductDetailsPage products={products} />} />
+                    <Route path="/add-product" element={<CreateProduct addProduct={addProduct} />} />
+                    <Route path="/update-item/:id" element={<UpdateItem products={products} updateProduct={updateProduct} />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;

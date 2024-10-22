@@ -1,60 +1,48 @@
+// src/components/CreateProduct.jsx
+
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
 
-const CreateProductForm = ({ addProduct }) => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+const CreateProduct = ({ addProduct }) => {
+    const [product, setProduct] = useState({
+        name: '',
+        description: '',
+        price: '',
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addProduct({ name, description, price: parseFloat(price), imageUrl });
-    setName('');
-    setDescription('');
-    setPrice('');
-    setImageUrl('');
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProduct({
+            ...product,
+            [name]: value,
+        });
+    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add Product</h2>
-      <input
-        type="text"
-        placeholder="Product Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Image URL"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
-        required
-      />
-      <button type="submit">Add Product</button>
-    </form>
-  );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addProduct(product);
+        setProduct({ name: '', description: '', price: '' }); // Reset form
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Product Name:</label>
+            <input type="text" id="name" name="name" value={product.name} onChange={handleChange} required />
+            
+            <label htmlFor="description">Description:</label>
+            <input type="text" id="description" name="description" value={product.description} onChange={handleChange} required />
+            
+            <label htmlFor="price">Price:</label>
+            <input type="number" id="price" name="price" value={product.price} onChange={handleChange} required />
+            
+            <button type="submit">Add Product</button>
+        </form>
+    );
 };
 
-// Define PropTypes
-CreateProductForm.propTypes = {
-  addProduct: PropTypes.func.isRequired, // Specify that addProduct is a required function
+// Prop validation
+CreateProduct.propTypes = {
+    addProduct: PropTypes.func.isRequired,
 };
 
-export default CreateProductForm;
+export default CreateProduct;

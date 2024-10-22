@@ -1,28 +1,30 @@
+   // src/pages/ProductDetailsPage.js
 import React from 'react';
-import { useParams } from 'react-router-dom'; 
-import productsData from '../data/products.json';
+import { useParams } from 'react-router-dom';
+import productData from '../data/products.json';
 
 const ProductDetailsPage = () => {
-    const { id } = useParams();
-    const product = productsData.find(prod => prod.id === parseInt(id));
+    const { id } = useParams(); // Get the product ID from the URL
+    const productId = parseInt(id); // Convert ID to a number
+
+    // Find the product from productData using the ID
+    const product = productData.find(product => product.id === productId);
 
     if (!product) {
-        return <div className="not-found">Product not found!</div>;
+        return <div>Product not found</div>; // Handle case where product is not found
     }
 
     return (
-        <div className="product-details">
-            <div className="product-image">
-                <img src={product.imageUrl} alt={product.name} />
-            </div>
-            <div className="product-info">
-                <h2 className="product-title">{product.name}</h2>
-                <p className="product-description">{product.description}</p>
-                <p className="product-price">${product.price}</p>
-                <button className="view-btn">view details</button>
-            </div>
+        <div>
+            <h2>{product.name}</h2>
+            <img src={product.imageUrl} alt={product.name} />
+            <p>Description: {product.description}</p>
+            <p>Price: ${product.price.toFixed(2)}</p>
+            <p>Category: {product.category}</p>
+            <p>In Stock: {product.inStock ? 'Yes' : 'No'}</p>
         </div>
     );
 };
 
 export default ProductDetailsPage;
+    
